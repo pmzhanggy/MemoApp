@@ -1,0 +1,14 @@
+## 记事本应用
+    -开发环境
+        nodejs语言搭建服务器，使用了Express框架
+        ejs模板引擎
+        body-parser模块数据解析
+        jquery类库
+        mongooDB数据库
+
+    -MVC开发规范
+
+    -项目结构
+
+
+

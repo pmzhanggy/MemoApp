@@ -1,0 +1,229 @@
+body {
+    background: #edf0f1;
+    padding: 80px 0 0 0;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    position: fixed;
+    padding: 15px;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    background: #25b99a;
+    -webkit-box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+    -moz-box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+    box-shadow: 0px 2px 4px rgba(44, 62, 80, 0.15);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+/*input 输入框*/
+header input {
+    width: 100%;
+    height: 50px;
+    float: left;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    text-indent: 18px;
+    padding: 0 60px 0 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px 25px 25px 5px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+
+/*placeholder*/
+header input::-webkit-input-placeholder{color: rgba(255, 255, 255, 0.75);}
+header input::-ms-input-placeholder{color: rgba(255, 255, 255, 0.75);}
+
+/*button*/
+header button {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+    background: #fff;
+    border: 0;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+/* SVG */
+header button svg {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -8px 0 0 -8px;
+}
+header button svg .fill {
+    fill: #25b99a;
+}
+
+header .notNull {
+    font-size: 12px;
+    color: #d9534f;
+    position: absolute;
+    top: 65px;
+    left: 30px;
+    display: none;
+}
+
+/* =================================================== */
+
+.container {
+    width: 100%;
+    padding: 15px;
+    float: left;
+}
+.container ul.memo {
+    width: 100%;
+    float: left;
+}
+ul.memo li {
+    width: 100%;
+    min-height: 50px;
+    float: left;
+    font-size: 14px;
+    font-weight: 500;
+    color: #444;
+    line-height: 22px;
+    background: #fff;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 0px 1px 2px rgba(44, 62, 80, 0.10);
+    margin: 0 0 10px 0;
+    padding: 14px 100px 14px 14px;
+}
+/*ul.memo:before,*/
+/*ul.memo:after {*/
+    /*content: '';*/
+    /*display: inline-block;*/
+    /*clear: both;*/
+/*}*/
+ul.memo li:last-of-type{
+    margin: 0;
+}
+
+/* btns */
+ul.memo li .buttons{
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+ul.memo li .buttons button{
+    width: 50px;
+    height: 50px;
+    float: left;
+    background: none;
+    position: relative;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+/*ul.memo li .buttons:before,*/
+/*ul.memo li .buttons:after {*/
+    /*content: '';*/
+    /*display: inline-block;*/
+    /*clear: both;*/
+/*}*/
+
+
+/*  去除SVG的背景色 */
+.noFill {
+    fill: none;
+}
+
+/* 两个svg之间的线 */
+ul.memo li .buttons button:last-of-type:before {
+    content: '';
+    width: 1px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    left: 0;
+    background: #edf0f1;
+}
+/* 设置SVG图片的大小 */
+ul.memo li .buttons button svg {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -11px 0  0 -11px;
+}
+/* 设置未完成Remove样式 */
+ul.memo li .buttons button.remove svg .fill {
+    fill: #d9534f;
+}
+
+/* 设置未完成complete样式 */
+ul.memo li .buttons button.complete svg {
+    border-radius: 11px;
+    border: 1.5px solid #25b99a;
+    transition: background 0.8s ease;
+}
+ul.memo li .buttons button.complete svg .fill {
+    fill: #25b99a;
+}
+
+/* 如果当前元素不是#complated,那么让complete变成白色 */
+ul.memo:not(#completed) li .buttons button.complete:hover svg .fill {
+    fill: #fff;
+}
+/* 如果当前元素不是#complated,那么让complete背景变成绿色 */
+ul.memo:not(#completed) li .buttons button.complete:hover svg {
+    /*background: rgba(37, 185, 154, 0.74);*/
+    background: #25b99a;
+}
+
+
+/* 设置已完成complete样式 */
+ul#completed li .buttons button.complete svg .fill {
+    fill: #fff;
+}
+ul#completed li .buttons button.complete svg {
+    background: #25b99a;
+}
+ul#completed li {
+    color: #777;
+    text-decoration: line-through;
+}
+
+/* 设置完成列表容器的样式 */
+ul.memo#completed {
+    position: relative;
+    padding: 60px 0 0 0;
+}
+
+/* 如果completed容器中包含内容，那么在元素前添加一条分割线 */
+ul.memo#completed:not(empty):before {
+    content: '';
+    width: 150px;
+    height: 1px;
+    background: #d8e5e0;
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    margin: 0 0 0 -75px;
+}
+
+/* 设置completed样式*/
